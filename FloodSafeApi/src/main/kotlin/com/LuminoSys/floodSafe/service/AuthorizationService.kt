@@ -8,9 +8,11 @@ import org.springframework.stereotype.Service
 
 @Service
 class AuthorizationService(
-    @Autowired private val usuarioRepository: UsuarioRepository
-): UserDetailsService {
+    private val usuarioRepository: UsuarioRepository
+) : UserDetailsService {
+    @Throws(UsernameNotFoundException::class)
     override fun loadUserByUsername(username: String): UserDetails {
-        return usuarioRepository.findByLogin(username)
+        return usuarioRepository.findByEmail(username)
+            ?: throw UsernameNotFoundException("User not found with username: $username")
     }
 }

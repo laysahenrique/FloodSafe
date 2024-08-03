@@ -1,8 +1,0 @@
-C:\Projetos\flood-safe\FloodSafeApi\src\main\kotlin\com\LuminoSys\floodSafe\service\TesteService.kt
-C:\Projetos\flood-safe\FloodSafeApi\src\main\kotlin\com\LuminoSys\floodSafe\service\PrevisaoService.kt
-C:\Projetos\flood-safe\FloodSafeApi\src\main\kotlin\com\LuminoSys\floodSafe\controller\TesteController.kt
-C:\Projetos\flood-safe\FloodSafeApi\src\main\kotlin\com\LuminoSys\floodSafe\controller\PrevisaoController.kt
-C:\Projetos\flood-safe\FloodSafeApi\src\main\kotlin\com\LuminoSys\floodSafe\repository\TesteRepository.kt
-C:\Projetos\flood-safe\FloodSafeApi\src\main\kotlin\com\LuminoSys\floodSafe\entity\Usuario.kt
-C:\Projetos\flood-safe\FloodSafeApi\src\main\kotlin\com\LuminoSys\floodSafe\FloodSafeApplication.kt
-C:\Projetos\flood-safe\FloodSafeApi\src\main\kotlin\com\LuminoSys\floodSafe\Dto\PrevisaoDto.kt

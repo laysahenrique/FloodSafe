@@ -1,34 +1,30 @@
 package com.example.auth.domain.user
 
 import jakarta.persistence.*
-import org.springframework.security.core.GrantedAuthority
+import org.hibernate.annotations.UuidGenerator
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
-import java.util.List
-import java.util.UUID
+import java.util.*
 
-@Table(name = "usuario")
-@Entity(name = "usuario")
-class Usuario() : UserDetails {
+@Entity
+class Usuario(
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private val id: UUID? = null
+    val id: UUID = UUID.randomUUID(),
+    val email: String = "",
+    private val senha: String = "",
+) : UserDetails {
 
-    private val username: String = ""
-
-    private val senha: String = ""
-
-    override fun getAuthorities(): kotlin.collections.List<SimpleGrantedAuthority> {
+    override fun getAuthorities(): List<SimpleGrantedAuthority> {
         return listOf(
             SimpleGrantedAuthority("ROLE_ADMIN"), SimpleGrantedAuthority("ROLE_USER")
         )
     }
 
     override fun getPassword(): String {
-        TODO("Not yet implemented")
+        return this.senha
     }
 
     override fun getUsername(): String {
-        TODO("Not yet implemented")
+        return this.email
     }
 }
