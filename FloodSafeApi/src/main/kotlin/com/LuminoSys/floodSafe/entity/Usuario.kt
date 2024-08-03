@@ -11,8 +11,8 @@ class Usuario {
     @Column(name = "id", nullable = false)
     val id: UUID? = null
 
-    @Column(name = "username",nullable = false, unique = true)
-    val username: String = ""
+    @Column(name = "email",nullable = false, unique = true)
+    val email: String = ""
 
     @Column(name = "senha", nullable = false)
     val senha: String = ""
