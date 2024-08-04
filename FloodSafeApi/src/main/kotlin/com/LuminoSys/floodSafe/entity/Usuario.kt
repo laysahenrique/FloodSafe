@@ -1,17 +1,19 @@
 package com.example.auth.domain.user
 
-import jakarta.persistence.*
 import org.hibernate.annotations.UuidGenerator
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
+import jakarta.persistence.Entity
+import jakarta.persistence.Id
 import java.util.*
 
-@Entity
+@Entity(name = "usuario")
 class Usuario(
     @Id
-    val id: UUID = UUID.randomUUID(),
-    val email: String = "",
-    private val senha: String = "",
+    @UuidGenerator
+    var id: UUID? = null,
+    var email: String = "",
+    var senha: String = ""
 ) : UserDetails {
 
     override fun getAuthorities(): List<SimpleGrantedAuthority> {
@@ -26,5 +28,21 @@ class Usuario(
 
     override fun getUsername(): String {
         return this.email
+    }
+
+    override fun isAccountNonExpired(): Boolean {
+        return true
+    }
+
+    override fun isAccountNonLocked(): Boolean {
+        return true
+    }
+
+    override fun isCredentialsNonExpired(): Boolean {
+        return true
+    }
+
+    override fun isEnabled(): Boolean {
+        return true
     }
 }
