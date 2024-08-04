@@ -1,13 +1,9 @@
 package com.LuminoSys.floodSafe.service
 
-import com.LuminoSys.floodSafe.dto.IncluirAreaInteresseDto
 import com.LuminoSys.floodSafe.dto.IncluirMidiaDto
-import com.LuminoSys.floodSafe.entity.AreaInteresse
 import com.LuminoSys.floodSafe.entity.Midia
-import com.LuminoSys.floodSafe.repository.AreaInteresseRepository
 import com.LuminoSys.floodSafe.repository.MidiaRepository
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.data.geo.Point
 import org.springframework.stereotype.Service
 
 @Service

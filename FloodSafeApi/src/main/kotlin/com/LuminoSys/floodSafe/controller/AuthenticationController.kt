@@ -5,6 +5,7 @@ import com.LuminoSys.floodSafe.dto.IncluirUsuario
 import com.LuminoSys.floodSafe.dto.LoginUsuario
 import com.LuminoSys.floodSafe.entity.Usuario
 import com.LuminoSys.floodSafe.repository.UsuarioRepository
+import com.LuminoSys.floodSafe.service.UsuarioService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.security.authentication.AuthenticationManager
@@ -21,19 +22,12 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("auth")
 class AuthenticationController(
     @Autowired private val authenticationManager: AuthenticationManager,
-    @Autowired private val usuarioRepository: UsuarioRepository,
-    @Autowired private val tokenService: TokenService
+    @Autowired private val usuarioService: UsuarioService,
+    @Autowired private val tokenService: TokenService,
 ) {
     @PostMapping
-    fun incluir(@RequestBody @Validated data: IncluirUsuario): ResponseEntity<*> {
-        if (usuarioRepository.findByEmail(data.email) != null) {
-            throw BadCredentialsException("Email já cadastrado")
-        }
-        val usuario = Usuario()
-        usuario.email = data.email
-        usuario.nome = data.nome
-        usuario.senha = BCryptPasswordEncoder().encode(data.senha)
-        usuarioRepository.save(usuario)
+    fun incluir(@RequestBody @Validated params: IncluirUsuario): ResponseEntity<*> {
+        usuarioService.persistir(params)
         return ResponseEntity.ok().build<Any>()
     }
 
