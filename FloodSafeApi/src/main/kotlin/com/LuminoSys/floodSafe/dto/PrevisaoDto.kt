@@ -1,4 +1,4 @@
-package com.LuminoSys.floodSafe.Dto
+package com.LuminoSys.floodSafe.dto
 
 data class PrevisaoCoordenadaRetorno(
     val cidade : String,

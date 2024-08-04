@@ -1,7 +1,7 @@
 package com.LuminoSys.floodSafe.controller
 
-import com.LuminoSys.floodSafe.Dto.CoordenadasPrevisao
-import com.LuminoSys.floodSafe.Dto.PrevisaoCoordenadaRetorno
+import com.LuminoSys.floodSafe.dto.CoordenadasPrevisao
+import com.LuminoSys.floodSafe.dto.PrevisaoCoordenadaRetorno
 import com.LuminoSys.floodSafe.service.PrevisaoService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping

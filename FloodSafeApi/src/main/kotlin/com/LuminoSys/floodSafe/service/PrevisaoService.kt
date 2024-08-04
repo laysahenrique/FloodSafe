@@ -1,7 +1,7 @@
 package com.LuminoSys.floodSafe.service
 
-import com.LuminoSys.floodSafe.Dto.CoordenadasPrevisao
-import com.LuminoSys.floodSafe.Dto.PrevisaoCoordenadaRetorno
+import com.LuminoSys.floodSafe.dto.CoordenadasPrevisao
+import com.LuminoSys.floodSafe.dto.PrevisaoCoordenadaRetorno
 import com.fasterxml.jackson.databind.JsonNode
 import org.springframework.stereotype.Service
 import org.springframework.web.reactive.function.client.WebClient

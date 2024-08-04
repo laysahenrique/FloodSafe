@@ -1,4 +1,4 @@
-package com.example.auth.domain.user
+package com.LuminoSys.floodSafe.entity
 
 import org.hibernate.annotations.UuidGenerator
 import org.springframework.security.core.authority.SimpleGrantedAuthority
