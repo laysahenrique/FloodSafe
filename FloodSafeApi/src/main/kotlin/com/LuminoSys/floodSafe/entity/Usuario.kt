@@ -16,16 +16,11 @@ class Usuario(
     var senha: String = ""
 ) : UserDetails {
 
-<<<<<<< HEAD
-    @Column(name = "email",nullable = false, unique = true)
-    val email: String = ""
-=======
     override fun getAuthorities(): List<SimpleGrantedAuthority> {
         return listOf(
             SimpleGrantedAuthority("ROLE_ADMIN"), SimpleGrantedAuthority("ROLE_USER")
         )
     }
->>>>>>> security
 
     override fun getPassword(): String {
         return this.senha
