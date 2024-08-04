@@ -1,19 +1,53 @@
 package com.LuminoSys.floodSafe.entity
 
-import jakarta.persistence.*
-import java.util.UUID
+import org.hibernate.annotations.UuidGenerator
+import org.springframework.security.core.authority.SimpleGrantedAuthority
+import org.springframework.security.core.userdetails.UserDetails
+import jakarta.persistence.Entity
+import jakarta.persistence.Id
+import java.util.*
 
 @Entity(name = "usuario")
-@Table(name = "usuario")
-class Usuario {
+class Usuario(
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    val id: UUID? = null
+    @UuidGenerator
+    var id: UUID? = null,
+    var email: String = "",
+    var senha: String = ""
+) : UserDetails {
 
+<<<<<<< HEAD
     @Column(name = "email",nullable = false, unique = true)
     val email: String = ""
+=======
+    override fun getAuthorities(): List<SimpleGrantedAuthority> {
+        return listOf(
+            SimpleGrantedAuthority("ROLE_ADMIN"), SimpleGrantedAuthority("ROLE_USER")
+        )
+    }
+>>>>>>> security
 
-    @Column(name = "senha", nullable = false)
-    val senha: String = ""
+    override fun getPassword(): String {
+        return this.senha
+    }
+
+    override fun getUsername(): String {
+        return this.email
+    }
+
+    override fun isAccountNonExpired(): Boolean {
+        return true
+    }
+
+    override fun isAccountNonLocked(): Boolean {
+        return true
+    }
+
+    override fun isCredentialsNonExpired(): Boolean {
+        return true
+    }
+
+    override fun isEnabled(): Boolean {
+        return true
+    }
 }
