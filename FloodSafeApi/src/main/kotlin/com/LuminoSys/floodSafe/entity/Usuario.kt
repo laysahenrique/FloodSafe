@@ -1,5 +1,6 @@
 package com.LuminoSys.floodSafe.entity
 
+import jakarta.persistence.Column
 import org.hibernate.annotations.UuidGenerator
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
@@ -8,13 +9,17 @@ import jakarta.persistence.Id
 import java.util.*
 
 @Entity(name = "usuario")
-class Usuario(
+class Usuario() : UserDetails {
+
     @Id
     @UuidGenerator
-    var id: UUID? = null,
-    var email: String = "",
+    var id: UUID? = null
+
+    var email: String = ""
+
     var senha: String = ""
-) : UserDetails {
+
+    var nome: String = ""
 
     override fun getAuthorities(): List<SimpleGrantedAuthority> {
         return listOf(
